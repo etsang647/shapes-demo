@@ -142,7 +142,7 @@ function gravity() {
 // checks if rectCenter is on the upper side of the map in which case it should
 // smile in the loop() function
 function isSmiling() {
-    if (rectCenter.x_pos < canvasWidth / 3 && rectCenter.y_pos <= upperMapHeight + y_vel) {
+    if (rectCenter.x_pos < canvasWidth / 3 - rectWidth && rectCenter.y_pos <= upperMapHeight + y_vel) {
         return true
     }
     return false
