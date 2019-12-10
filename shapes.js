@@ -4,11 +4,14 @@
 canvas = document.getElementById("map");
 context = canvas.getContext("2d");
 
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
 const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 
-const rectWidth = 80;
-const rectHeight = 80;
+const rectWidth = 100;
+const rectHeight = 100;
 const platformHeight = 20;
 
 const upperMapHeight = canvasHeight / 5;
