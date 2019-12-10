@@ -13,8 +13,8 @@ const lowerMapHeight = 2 * canvasHeight / 3;
 
 const x_vel = 10;
 const y_vel = 10;
-const platform_vel = 2;
-const gravity_vel = 2;
+const platform_vel = 5;
+var gravity_vel = 5;
 
 rectLeft = {
     x_pos: canvasWidth / 5,
@@ -85,7 +85,7 @@ function withinYBounds(y_pos, yOffset) {
 function movePlatform(yOffset) {
     if (withinYBounds(rectPlatform.y_pos - rectHeight, yOffset)) {
         rectPlatform.y_pos += yOffset;
-        if (onPlatform() && withinYBounds(rectCenter.y_pos))
+        if (onPlatform() && withinYBounds(rectCenter.y_pos, yOffset))
             rectCenter.y_pos += yOffset;
     }
 }
@@ -111,9 +111,19 @@ function onRightButton() {
 
 function gravity() {
     if (rectCenter.x_pos < canvasWidth / 3 && rectCenter.y_pos < upperMapHeight) {
-        rectCenter.y_pos += gravity_vel;
+        gravity_vel += 0.2;
+        if (withinYBounds(rectCenter.y_pos, gravity_vel))
+            rectCenter.y_pos += gravity_vel;
+        else
+            rectCenter.y_pos = upperMapHeight;
     } else if (rectCenter.x_pos >= canvasWidth / 3 && rectCenter.y_pos < lowerMapHeight) {
-        rectCenter.y_pos += gravity_vel;
+        gravity_vel += 0.2;
+        if (withinYBounds(rectCenter.y_pos, gravity_vel))
+            rectCenter.y_pos += gravity_vel;
+        else
+            rectCenter.y_pos = lowerMapHeight;
+    } else {
+        gravity_vel = 5;
     }
 }
 
