@@ -73,7 +73,6 @@ function moveRect(position, xOffset, yOffset) {
     }
 }
 // check if x_pos + xOffset is within horizontal bounds of canvas and map
-// buggy collision detection
 function withinXBounds(x_pos, y_pos, xOffset) {
     if (x_pos + xOffset < 0 || x_pos + xOffset > canvasWidth)
         return false
@@ -98,7 +97,7 @@ function movePlatform(yOffset) {
     }
 }
 
-// buggy collision detection: checks if rectCenter is on the rectPlatform
+// checks if rectCenter is on the rectPlatform
 function onPlatform() {
     if (Math.abs(rectCenter.x_pos - rectPlatform.x_pos) < rectWidth && Math.abs(rectCenter.y_pos + rectHeight - rectPlatform.y_pos) <= platformHeight) {
         return true
@@ -120,7 +119,7 @@ function onRightButton() {
     }
 }
 
-// gravity acceleration (messy implementation)
+// gravity acceleration
 function gravity() {
     if (rectCenter.x_pos < canvasWidth / 3 && rectCenter.y_pos < upperMapHeight) {
         gravity_vel += 0.2;
@@ -148,8 +147,9 @@ function isSmiling() {
     return false
 }
 
+// draw frame within canvas
 function loop() {
-    // fill entire canvas
+    // fill background
     context.fillStyle = "#7D7ABC";
     context.fillRect(0, 0, canvasWidth, canvasHeight)
 
