@@ -53,19 +53,19 @@ rectButtonRight = {
 function moveRect(position, xOffset, yOffset) {
     switch (position) {
         case "left":
-            if (withinXBounds(rectLeft.x_pos, xOffset))
+            if (withinXBounds(rectLeft.x_pos, rectLeft.y_pos, xOffset))
                 rectLeft.x_pos += xOffset;
             if (withinYBounds(rectLeft.y_pos, yOffset))
                 rectLeft.y_pos += yOffset;
             break;
         case "center":
-            if (withinXBounds(rectCenter.x_pos, xOffset))
+            if (withinXBounds(rectCenter.x_pos, rectCenter.y_pos, xOffset))
                 rectCenter.x_pos += xOffset;
             if (withinYBounds(rectCenter.y_pos, yOffset))
                 rectCenter.y_pos += yOffset;
             break;
         case "right":
-            if (withinXBounds(rectRight.x_pos, xOffset))
+            if (withinXBounds(rectRight.x_pos, rectRight.y_pos, xOffset))
                 rectRight.x_pos += xOffset;
             if (withinYBounds(rectRight.y_pos, yOffset))
                 rectRight.y_pos += yOffset;
@@ -73,8 +73,11 @@ function moveRect(position, xOffset, yOffset) {
     }
 }
 // check if x_pos + xOffset is within horizontal bounds of canvas and map
-function withinXBounds(x_pos, xOffset) {
+// buggy collision detection
+function withinXBounds(x_pos, y_pos, xOffset) {
     if (x_pos + xOffset < 0 || x_pos + xOffset > canvasWidth)
+        return false
+    if (y_pos >= lowerMapHeight && x_pos + xOffset < canvasWidth / 3)
         return false
     return true
 }
@@ -97,7 +100,7 @@ function movePlatform(yOffset) {
 
 // buggy collision detection: checks if rectCenter is on the rectPlatform
 function onPlatform() {
-    if (Math.abs(rectCenter.x_pos - rectPlatform.x_pos) < rectWidth && rectCenter.y_pos + rectHeight <= rectPlatform.y_pos + platformHeight) {
+    if (Math.abs(rectCenter.x_pos - rectPlatform.x_pos) < rectWidth && Math.abs(rectCenter.y_pos + rectHeight - rectPlatform.y_pos) <= platformHeight) {
         return true
     }
     return false
