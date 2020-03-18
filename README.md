@@ -1,5 +1,5 @@
 # shapes-demo
-A simple demonstration showing an interaction between 2d shapes. Written for a developmental psychology class project.
+An interactive platforming demo with 2d shapes, based on [this paper](https://www.nature.com/articles/nature06288) by Hamlin et al., 2007 and written for a developmental psychology class project (see figure [here](https://www.nature.com/articles/nature06288/figures/1)).
 
 **Controls**
 * A and D to move the left rectangle
