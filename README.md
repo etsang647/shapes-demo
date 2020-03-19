@@ -1,5 +1,5 @@
 # shapes-demo
-An interactive platforming demo involving shapes based on [this](https://www.nature.com/articles/nature06288) study on infant morality by Hamlin et al., 2007. I was inspired by [one animation](https://www.nature.com/articles/nature06288/figures/1) from the study and wrote this program as a creative project for my developmental psychology class.
+An interactive platforming demo involving shapes based on [this](https://www.nature.com/articles/nature06288) study on infant morality by Hamlin et al., 2007. I was inspired by the animations they used to test [infants' preferences](https://www.nature.com/articles/nature06288/figures/1) in various social situations and wrote this program as a creative project for my developmental psychology class.
 
 **Controls**
 * A and D to move the left rectangle
