@@ -1,5 +1,5 @@
 # shapes-demo
-An interactive platforming demo with 2d shapes based on [this paper](https://www.nature.com/articles/nature06288) by Hamlin et al., 2007. Written for a developmental psychology class project and inspired by this figure [here](https://www.nature.com/articles/nature06288/figures/1).
+An interactive platforming demo involving shapes based on [this](https://www.nature.com/articles/nature06288) study from Hamlin et al., 2007. I was inspired by their animations [here](https://www.nature.com/articles/nature06288/figures/1) and wrote this program as my final creative project in a developmental psychology class.
 
 **Controls**
 * A and D to move the left rectangle
